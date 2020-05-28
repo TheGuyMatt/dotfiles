@@ -149,8 +149,9 @@ ramp-signal-foreground = ${colors.foreground-alt}
 type = internal/date
 interval = 60
 date = " %Y-%m-%d"
-time =  %H:%M 
+time =  %I:%M 
 ;%S <- add for seconds
+;%H:%M <- military time
 label = %date% %time%
 
 [module/pulseaudio]
