@@ -190,9 +190,6 @@ bindsym $mod+r mode "resize"
 #     }
 # }
 
-# locks the window
-bindsym $mod+shift+x exec i3lock
-
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 10 # brightness up
 bindsym XF86MonBrightnessDown exec light -U 10 # brightness down
@@ -206,7 +203,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 for_window [class=".*"] border pixel 0
 
 # gaps
-gaps inner 15
+gaps inner 10
 
 # Apps
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
@@ -214,5 +211,12 @@ exec --no-startup-id nm-applet
 
 exec --no-startup-id picom -b
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec_always --no-startup-id wal -i ~/Pictures/Wallpapers/purplegalaxy.jpg
+
+# set wallpaper
+set $wallpaper ~/Pictures/Wallpapers/purplegalaxy.jpg
+exec_always --no-startup-id wal -i $wallpaper
+exec_always ~/.local/bin/betterlockscreen -u $wallpaper
+# locks the window
+bindsym $mod+shift+x exec ~/.local/bin/betterlockscreen -l blur
+
 exec_always xrdb -merge ~/.Xresources
