@@ -1,6 +1,6 @@
 # Matthew Hieb's dotfiles
 
-A collection of my files I use for my linux setup. Feel free to take/copy paste any of the files. BTW I use Arch
+A collection of my files and apps I use for my linux setup. Feel free to take/copy paste any of the files. BTW I use Arch
 
 ## Other Config Settings:
 ### Arch Packages:
@@ -12,6 +12,9 @@ A collection of my files I use for my linux setup. Feel free to take/copy paste 
 * [pywal](https://www.archlinux.org/packages/community/any/python-pywal/)
 * [neovim](https://www.archlinux.org/packages/community/x86_64/neovim/) with [vim-plug](https://aur.archlinux.org/packages/neovim-plug/)
 * [neofetch](https://www.archlinux.org/packages/community/any/neofetch/)
+* [zathura](https://www.archlinux.org/packages/community/x86_64/zathura/)
+* [zathura-pdf-poppler](https://www.archlinux.org/packages/community/x86_64/zathura-pdf-poppler/)
+* [groff](https://www.archlinux.org/packages/community/x86_64/zathura/)
 
 ### AUR:
 * [juno-theme-git](https://aur.archlinux.org/packages/juno-theme-git/)
