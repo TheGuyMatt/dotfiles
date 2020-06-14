@@ -4,6 +4,8 @@ A collection of my files I use for my linux setup. Feel free to take/copy paste 
 
 ## Other Config Settings:
 ### Arch Packages:
+* [git](https://www.archlinux.org/packages/extra/x86_64/git/)
+* [hub](https://www.archlinux.org/packages/community/x86_64/hub/)
 * [Alacritty](https://www.archlinux.org/packages/community/x86_64/alacritty/)
 * [lxappearance](https://www.archlinux.org/packages/community/x86_64/lxappearance/)
 * [rofi](https://www.archlinux.org/packages/community/x86_64/rofi/)
@@ -19,5 +21,3 @@ A collection of my files I use for my linux setup. Feel free to take/copy paste 
 
 ### Repos:
 * [alacritty-color-export](https://github.com/egeesin/alacritty-color-export)
-
-This list is not finished. I will update this repo with everything I use over time.
