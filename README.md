@@ -15,6 +15,9 @@ A collection of my files and apps I use for my linux setup. Feel free to take/co
 * [zathura](https://www.archlinux.org/packages/community/x86_64/zathura/)
 * [zathura-pdf-poppler](https://www.archlinux.org/packages/community/x86_64/zathura-pdf-poppler/)
 * [groff](https://www.archlinux.org/packages/community/x86_64/zathura/)
+* [mpd](https://www.archlinux.org/packages/extra/x86_64/mpd/)
+* [mpc](https://www.archlinux.org/packages/extra/x86_64/mpc/)
+* [mpv](https://www.archlinux.org/packages/extra/x86_64/mpv/)
 
 ### AUR:
 * [juno-theme-git](https://aur.archlinux.org/packages/juno-theme-git/)
