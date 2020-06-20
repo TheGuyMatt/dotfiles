@@ -18,6 +18,7 @@ A collection of my files and apps I use for my linux setup. Feel free to take/co
 * [mpd](https://www.archlinux.org/packages/extra/x86_64/mpd/)
 * [mpc](https://www.archlinux.org/packages/extra/x86_64/mpc/)
 * [mpv](https://www.archlinux.org/packages/extra/x86_64/mpv/)
+* [dunst](https://www.archlinux.org/packages/community/x86_64/dunst/)
 
 ### AUR:
 * [juno-theme-git](https://aur.archlinux.org/packages/juno-theme-git/)
