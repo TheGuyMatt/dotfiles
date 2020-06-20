@@ -36,14 +36,14 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
-border-color = #00000000
+;border-size = 4
+;border-color = #00000000
 
 padding-left = 0
 padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 2
+;module-margin-left = 1
+module-margin-right = 1
 
 font-0 = "Iosevka:size=10;3"
 font-1 = "Material:size=13;4"
@@ -73,7 +73,7 @@ tray-padding = 2
 cursor-click = pointer
 cursor-scroll = ns-resize 
 
-bottom = true
+;bottom = true
 
 [module/i3]
 type = internal/i3
@@ -84,7 +84,7 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 2
+;label-mode-padding = 1
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
@@ -150,8 +150,10 @@ ramp-signal-foreground = ${colors.foreground-alt}
 [module/date]
 type = internal/date
 interval = 60
-date = " %Y-%m-%d"
+date =
 time =  %I:%M 
+date-alt = " %Y-%m-%d"
+time-alt =  %I:%M 
 ;%S <- add for seconds
 ;%H:%M <- military time
 label = %date% %time%
