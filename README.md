@@ -1,8 +1,10 @@
 # Matthew Hieb's dotfiles
 
-A collection of my files and apps I use for my linux setup. Feel free to take/copy paste any of the files. Copy fonts to ~/.local/share/fonts/ to use them. BTW I use Arch
+A collection of my files and apps I use for my linux setup. Feel free to take/copy paste any of the files.
+Copy fonts to ~/.local/share/fonts/ to use them.
 
-## Other Config Settings:
+BTW I use Arch
+
 ### Arch Packages:
 * [git](https://www.archlinux.org/packages/extra/x86_64/git/)
 * [hub](https://www.archlinux.org/packages/community/x86_64/hub/)
@@ -26,5 +28,7 @@ A collection of my files and apps I use for my linux setup. Feel free to take/co
 * [android-file-transfer-linux-git](https://aur.archlinux.org/packages/android-file-transfer-linux-git/)
 * [yay](https://aur.archlinux.org/packages/yay/)
 
-### Repos:
+### Other:
+* [my dwm build](https://github.com/TheGuyMatt/dwm)
+* [dwmblocks](https://github.com/torrinfail/dwmblocks)
 * [alacritty-color-export](https://github.com/egeesin/alacritty-color-export)
