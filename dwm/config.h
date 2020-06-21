@@ -8,8 +8,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "Hack Nerd Font:size=10" };
+static const char dmenufont[]       = "Hack Nerd Font:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -29,11 +29,11 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "Alacritty",      NULL,     NULL,           0,         0,          1,          -1,        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
+	/* class       instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "Gimp",      NULL,     NULL,           0,         1,          0,           0,        -1 },
+	{ "Firefox",   NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
+	{ "Alacritty", NULL,     NULL,           0,         0,          1,          -1,        -1 },
+	{ NULL,        NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -117,6 +117,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+  { MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
 };
 
 /* button definitions */
