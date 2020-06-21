@@ -1,26 +1,23 @@
 /* See LICENSE file for copyright and license details. */
 
-#include <X11/XF86keysym.h>
-#include "/home/matt/.cache/wal/colors-wal-dwm.h"
-
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack Nerd Font:size=10" };
-static const char dmenufont[]       = "Hack Nerd Font:size=10";
-//static const char col_gray1[]       = "#222222";
-//static const char col_gray2[]       = "#444444";
-//static const char col_gray3[]       = "#bbbbbb";
-//static const char col_gray4[]       = "#eeeeee";
-//static const char col_cyan[]        = "#005577";
-//static const char *colors[][3]      = {
-	//[>               fg         bg         border   <]
-	//[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	//[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-//};
+static const char *fonts[]          = { "monospace:size=10" };
+static const char dmenufont[]       = "monospace:size=10";
+static const char col_gray1[]       = "#222222";
+static const char col_gray2[]       = "#444444";
+static const char col_gray3[]       = "#bbbbbb";
+static const char col_gray4[]       = "#eeeeee";
+static const char col_cyan[]        = "#005577";
+static const char *colors[][3]      = {
+	/*               fg         bg         border   */
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+};
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -30,11 +27,11 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class       instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",      NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox",   NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "Alacritty", NULL,     NULL,           0,         0,          1,          -1,        -1 },
-	{ NULL,        NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
+	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
+	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
+	{ "st",      NULL,     NULL,           0,         0,          1,          -1,        -1 },
+	{ NULL,      NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -50,7 +47,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask
+#define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -62,30 +59,13 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-//rofi -show run -eh 2 -fullscreen -theme "~/.cache/wal/colors-rofi-dark.rasi" -font "Hack Nerd Font 18"
-static const char *dmenucmd[] = { "rofi", "-show", "run", "-eh", "2", "-fullscreen", "-theme", "~/.cache/wal/colors-rofi-dark.rasi", "-font", "Hack Nerd Font 18", NULL };
-//static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
-static const char *lockscreen[]  = { "~/.local/bin/betterlockscreen", "-l", "blur", NULL };
-
-//brightness functions
-static const char *brightnessup[] = { "/usr/bin/light", "-A", "5", NULL };
-static const char *brightnessdown[] = { "/usr/bin/light", "-U", "5", NULL };
-//volume functions
-static const char *volumeup[] = { "/usr/bin/pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *volumedown[] = { "/usr/bin/pactl", "set-sink-volume", "0", "-5%", NULL };
-static const char *volumemute[] = { "/usr/bin/pactl", "set-sink-mute", "0", "toggle", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ 0,          XF86XK_MonBrightnessUp,      spawn,          {.v = brightnessup } },
-	{ 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = brightnessdown } },
-	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          {.v = volumeup } },
-	{ 0,         XF86XK_AudioLowerVolume,      spawn,          {.v = volumedown } },
-	{ 0,                XF86XK_AudioMute,      spawn,          {.v = volumemute } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask,             XK_x,      spawn,          {.v = lockscreen } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -101,7 +81,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-  { MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
+	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
@@ -118,7 +98,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-  { MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
+	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} }, 
 };
 
 /* button definitions */
