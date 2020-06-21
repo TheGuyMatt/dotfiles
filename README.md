@@ -1,6 +1,6 @@
 # Matthew Hieb's dotfiles
 
-A collection of my files and apps I use for my linux setup. Feel free to take/copy paste any of the files. BTW I use Arch
+A collection of my files and apps I use for my linux setup. Feel free to take/copy paste any of the files. Copy fonts to ~/.local/share/fonts/ to use them. BTW I use Arch
 
 ## Other Config Settings:
 ### Arch Packages:
