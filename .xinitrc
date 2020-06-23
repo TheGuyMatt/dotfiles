@@ -2,11 +2,12 @@
 
 exec picom -f &
 
-exec wal -i ~/Pictures/Wallpapers/purplegalaxy.jpg &
-exec ~/.local/bin/betterlockscreen -u ~/Pictures/Wallpapers/purplegalaxy.jpg &
-exec ~/.local/bin/betterlockscreen -u ~/Pictures/Wallpapers/purplegalaxy.jpg &
+exec /usr/bin/wal -i ~/Pictures/Wallpapers/nikko-sunset-unsplash.jpg &
+exec ~/.local/bin/betterlockscreen -u ~/Pictures/Wallpapers/nikko-sunset-unsplash.jpg &
+exec ~/.local/bin/betterlockscreen -u ~/Pictures/Wallpapers/nikko-sunset-unsplash.jpg &
 
 # set alacritty colors
 exec ~/Repos/alacritty-color-export/script.sh &
 
+exec dwmblocks &
 exec dwm
