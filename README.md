@@ -21,6 +21,7 @@ BTW I use Arch
 * [mpc](https://www.archlinux.org/packages/extra/x86_64/mpc/)
 * [mpv](https://www.archlinux.org/packages/extra/x86_64/mpv/)
 * [dunst](https://www.archlinux.org/packages/community/x86_64/dunst/)
+* [pamixer](https://www.archlinux.org/packages/community/x86_64/pamixer/)
 
 ### AUR:
 * [juno-theme-git](https://aur.archlinux.org/packages/juno-theme-git/)
