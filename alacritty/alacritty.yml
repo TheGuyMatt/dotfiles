@@ -136,7 +136,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 10.0
+  size: 9.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -511,6 +511,10 @@ key_bindings:
   - { key: Subtract, mods: Control,       action: DecreaseFontSize }
   #- { key: Minus,    mods: Control,       action: DecreaseFontSize }
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
+  - { key: K, mods: Alt,   action: ScrollPageUp   }
+  - { key: J, mods: Alt,   action: ScrollPageDown }
+  - { key: H, mods: Alt,   action: ScrollToTop    }
+  - { key: L, mods: Alt,   action: ScrollToBottom }
 
   # (Windows only)
   #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
@@ -562,28 +566,28 @@ key_bindings:
 # BEGIN ACE
 colors:
   primary:
-    background: '0x0c041d'
-    foreground: '0xe9c5e9'
+    background: '0x31131b'
+    foreground: '0xc5a9b9'
   cursor:
-    text:       '0x0c041d'
-    cursor:     '0xe9c5e9'
+    text:       '0x31131b'
+    cursor:     '0xc5a9b9'
   normal:
-    black:      '0x0c041d'
-    red:        '0x54309C'
-    green:      '0x563BBA'
-    yellow:     '0x684FA2'
-    blue:       '0xA058A7'
-    magenta:    '0x9D69E0'
-    cyan:       '0xCA66C6'
-    white:      '0xe9c5e9'
+    black:      '0x31131b'
+    red:        '0x8C3D4D'
+    green:      '0xA0505F'
+    yellow:     '0xAE566C'
+    blue:       '0xD96157'
+    magenta:    '0xFBA060'
+    cyan:       '0x6E5C88'
+    white:      '0xc5a9b9'
   bright:
-    black:      '0xa389a3'
-    red:        '0x54309C'
-    green:      '0x563BBA'
-    yellow:     '0x684FA2'
-    blue:       '0xA058A7'
-    magenta:    '0x9D69E0'
-    cyan:       '0xCA66C6'
-    white:      '0xe9c5e9'
+    black:      '0x897681'
+    red:        '0x8C3D4D'
+    green:      '0xA0505F'
+    yellow:     '0xAE566C'
+    blue:       '0xD96157'
+    magenta:    '0xFBA060'
+    cyan:       '0x6E5C88'
+    white:      '0xc5a9b9'
 
 # END ACE

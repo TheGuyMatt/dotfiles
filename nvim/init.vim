@@ -14,7 +14,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf'
 
-	Plug 'morhetz/gruvbox'
+  Plug 'ThePrimeagen/vim-be-good', { 'do': './install.sh' }
+
+  Plug 'morhetz/gruvbox'
+  Plug 'altercation/vim-colors-solarized'
+  Plug 'AlessandroYorba/Sierra'
 	
 	Plug 'ryanoasis/vim-devicons'
 call plug#end()
@@ -78,7 +82,12 @@ set shiftwidth=2
 " always uses spaces instead of tab characters
 set expandtab
 
-colorscheme gruvbox
+"syntax enable
+"set background=dark
+"colorscheme solarized
+"colorscheme gruvbox
+let g:sierra_Pitch = 1
+colorscheme sierra
 
 " Nerdtree
 nmap <C-b> :NERDTreeToggle<CR>
@@ -120,6 +129,7 @@ let g:coc_global_extensions = [
   \ 'coc-python', 
   \ 'coc-clangd', 
   \ 'coc-cmake', 
+  \ 'coc-spell-checker', 
   \ ]
 " from readme
 " TextEdit might fail if hidden is not set.
