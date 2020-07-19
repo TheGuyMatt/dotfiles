@@ -7,7 +7,7 @@ exec ~/.local/bin/betterlockscreen -u ~/Pictures/thebestwallpaper.jpg &
 exec ~/.local/bin/betterlockscreen -u ~/Pictures/thebestwallpaper.jpg &
 
 # set alacritty colors
-exec ~/Repos/alacritty-color-export/script.sh &
+# exec ~/Repos/alacritty-color-export/script.sh &
 
 # overwrite dwm border colors
 exec ~/.local/bin/dwmcoloroverwrite &
