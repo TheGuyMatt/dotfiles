@@ -31,8 +31,9 @@ BTW I use Arch
 * [yay](https://aur.archlinux.org/packages/yay/)
 * [juno-theme-git](https://aur.archlinux.org/packages/juno-theme-git/)
 * [moka-icon-theme-git](https://aur.archlinux.org/packages/moka-icon-theme-git/)
-* [android-file-transfer-linux-git](https://aur.archlinux.org/packages/android-file-transfer-linux-git/)
 * [betterlockscreen](https://aur.archlinux.org/packages/betterlockscreen/)
+* [android-file-transfer-linux-git](https://aur.archlinux.org/packages/android-file-transfer-linux-git/)
+* [lf-git](https://aur.archlinux.org/packages/lf-git/)
 
 ### Packages I don't use but have configs for:
 * [Alacritty](https://www.archlinux.org/packages/community/x86_64/alacritty/)
