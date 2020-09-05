@@ -34,6 +34,8 @@ BTW I use Arch
 * [betterlockscreen](https://aur.archlinux.org/packages/betterlockscreen/)
 * [android-file-transfer-linux-git](https://aur.archlinux.org/packages/android-file-transfer-linux-git/)
 * [lf-git](https://aur.archlinux.org/packages/lf-git/)
+* [openrazer-meta](https://aur.archlinux.org/packages/openrazer-meta/)
+* [razergenie](https://aur.archlinux.org/packages/razergenie/)
 
 ### Packages I don't use but have configs for:
 * [Alacritty](https://www.archlinux.org/packages/community/x86_64/alacritty/)
