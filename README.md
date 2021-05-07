@@ -3,6 +3,8 @@
 A collection of my files and apps I use for my linux setup. Feel free to take/copy paste any of the files.
 Copy fonts to ~/.local/share/fonts/ to use them.
 
+I no longer use dwm, but kde plasma for my desktop, but all my past configs are availible here too.
+
 BTW I use Arch
 
 ### My Suckless Repositories:
