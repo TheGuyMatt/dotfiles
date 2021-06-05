@@ -1,17 +1,26 @@
 -- TheGuyMatt's xmonad config
 
 import XMonad
-import Data.Monoid
-import System.Exit
+
+import Graphics.X11.ExtraTypes.XF86
+
+import XMonad.Hooks.DynamicLog --(dynamicLogWithPP, wrap, xmobarPP, xmobarColor, shorten, PP(..))
+import XMonad.Hooks.ManageDocks
 
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Run
-import XMonad.Hooks.ManageDocks
+
 import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
+
+import Data.Monoid
+import System.Exit
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
+import qualified XMonad.Layout.MultiToggle as MT
 
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
@@ -46,8 +55,8 @@ myModMask       = mod4Mask
 --
 -- > workspaces = ["web", "irc", "code" ] ++ map show [4..9]
 --
---myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
-myWorkspaces    = ["1","2","3","4"]
+myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
+--myWorkspaces    = ["1","2","3","4"]
 
 -- Border colors for unfocused and focused windows, respectively.
 --
@@ -63,10 +72,22 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm,               xK_p     ), spawn "dmenu_run")
+    --, ((modm,               xK_p     ), spawn "dmenu_run")
+
+    -- launch rofi
+    , ((modm,               xK_p     ), spawn "rofi -show run -eh 2 -theme gruvbox-dark.rasi -font 'Hack Nerd Font 18'")
 
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
+
+    -- brightness control
+    , ((0, xF86XK_MonBrightnessUp)  , spawn "brightnessctl set +5%")
+    , ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl set 5%-")
+
+    -- volume control
+    , ((0, xF86XK_AudioRaiseVolume), spawn "/usr/bin/pactl set-sink-volume 0 +5%")
+    , ((0, xF86XK_AudioLowerVolume), spawn "/usr/bin/pactl set-sink-volume 0 -5%")
+    , ((0, xF86XK_AudioMute)       , spawn "/usr/bin/pactl set-sink-mute   0 toggle")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -76,6 +97,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     --  Reset the layouts on the current workspace to default
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
+
+    -- toggle fullscreen
+    , ((modm .|. shiftMask, xK_f), sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts >> toggleWindowSpacingEnabled >> toggleScreenSpacingEnabled)
 
     -- Resize viewed windows to the correct size
     , ((modm,               xK_n     ), refresh)
@@ -233,7 +257,7 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
-myLogHook = return ()
+--myLogHook = return ()
 
 ------------------------------------------------------------------------
 -- Startup hook
@@ -252,16 +276,8 @@ myStartupHook = return ()
 --
 main = do
   xmproc <- spawnPipe "xmobar /home/matt/.xmobarrc"
-  xmonad $ docks defaults
-
--- A structure containing your configuration settings, overriding
--- fields in the default config. Any you don't override, will
--- use the defaults defined in xmonad/XMonad/Config.hs
---
--- No need to modify this.
---
-defaults = def {
-      -- simple stuff
+  xmonad $ docks def
+    {   -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
         clickJustFocuses   = myClickJustFocuses,
@@ -280,7 +296,18 @@ defaults = def {
         layoutHook = spacingRaw False (Border 0 10 0 10) True (Border 10 0 10 0) True $ smartBorders myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = myLogHook,
+        logHook            = dynamicLogWithPP $ xmobarPP
+          { ppOutput = hPutStrLn xmproc --give xmobar workspace info
+          , ppCurrent = xmobarColor "#FFFFFF" "" . wrap "[" "]" --current workspace
+          , ppVisible = xmobarColor "#FFFFFF" "" --visible workspace
+          , ppHidden = xmobarColor "#FFFF00" "" . wrap "*" "" --hidden workspace
+          , ppHiddenNoWindows = xmobarColor "#B2B2B2" ""
+          , ppTitle = xmobarColor "#FFFFFF" "" . shorten 60
+          , ppSep = "<fc=#B2B2B2> <fn=1>|</fn> </fc>"
+          , ppUrgent = xmobarColor "#FF0000" "" . wrap "!" "!"
+          --, ppOrder = \(ws:l:t::ex) -> [ws,l]++ex++[t]
+          ,ppOrder = \(ws:_:t:_) -> [ws, t]
+          },
         startupHook        = myStartupHook
     }
 
